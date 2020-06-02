@@ -13,6 +13,9 @@ using Microsoft.EntityFrameworkCore;
 using br.procon.si.api.fornecedor.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using br.procon.si.api.fornecedor.ConfigServices;
+using br.procon.si.api.fornecedor.ConfigApp;
+
 
 namespace br.procon.si.api.fornecedor
 {
@@ -28,15 +31,8 @@ namespace br.procon.si.api.fornecedor
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>()
-                .AddDefaultUI(UIFramework.Bootstrap4)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
-
-
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            new DataService().Install(services,Configuration);
+            new PresentationService().Install(services,Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,6 +47,15 @@ namespace br.procon.si.api.fornecedor
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            var swaggerOptions = new SwaggerOptions();
+            Configuration.GetSection(nameof(SwaggerOptions)).Bind(swaggerOptions);
+
+            app.UseSwagger(options=> { options.RouteTemplate = swaggerOptions.JsonRoute;});
+
+            app.UseSwaggerUI(options=> {
+                options.SwaggerEndpoint(swaggerOptions.UIEndpoint,swaggerOptions.Description);
+                });
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

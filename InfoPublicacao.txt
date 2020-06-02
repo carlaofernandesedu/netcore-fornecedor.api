@@ -1,0 +1,28 @@
+https://docs.microsoft.com/en-us/archive/msdn-magazine/2017/december/cutting-edge-configuring-asp-net-core-applications
+https://stackoverflow.com/questions/31049152/publish-to-iis-setting-environment-variable/36836533#36836533
+https://microservices.io/patterns/externalized-configuration.html
+
+https://docs.microsoft.com/pt-br/aspnet/core/host-and-deploy/iis/?view=aspnetcore-2.2
+
+https://docs.microsoft.com/pt-br/aspnet/core/fundamentals/environments?view=aspnetcore-2.2
+
+https://stackoverflow.com/questions/39256057/how-to-publish-environment-specific-appsettings-in-net-core-app
+
+   <!-- This configuration is done for dotnet publish command.
+     It will make sure only environment specific files will be copied -->
+          <ItemGroup Condition=" '$(EnvironmentName)' == 'Dev'">
+            <Content Remove="appsettings.Prod.json" />
+            <Content Remove="appsettings.Pre.json" />
+          </ItemGroup>
+          <ItemGroup Condition=" '$(EnvironmentName)' == 'Pre'">
+            <Content Remove="appsettings.Prod.json" />
+            <Content Remove="appsettings.Dev.json" />
+            <Content Remove="appsettings.Development.json" />
+          </ItemGroup>
+          <ItemGroup Condition=" '$(**EnvironmentName**)' == 'Prod'">
+            <Content Remove="appsettings.Pre.json" />
+            <Content Remove="appsettings.Dev.json" />
+            <Content Remove="appsettings.Development.json" />
+          </ItemGroup>
+
+Comando para definicao de variavel ambiente principal dotnet publish -c Release /p:EnvironmentName='Producao'  
