@@ -5,9 +5,9 @@ VisualStudioVersion = 15.0.28307.1145
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "br.procon.si.api.fornecedor", "br.procon.si.api.fornecedor\br.procon.si.api.fornecedor.csproj", "{A4301D8D-74BB-4E9B-9063-914B59D5F0A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "br.procon.si.api.fornecedor.domain", "br.procon.si.api.fornecedor.domain\br.procon.si.api.fornecedor.domain.csproj", "{35B9B25F-17AC-47BD-BAF5-82BCC52AB2E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "br.procon.si.api.fornecedor.domain", "br.procon.si.api.fornecedor.domain\br.procon.si.api.fornecedor.domain.csproj", "{35B9B25F-17AC-47BD-BAF5-82BCC52AB2E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "br.procon.si.api.fornecedor.core", "br.procon.si.api.fornecedor.core\br.procon.si.api.fornecedor.core.csproj", "{A1FBCC05-529C-49ED-9FD9-FD7CF9C543BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "br.procon.si.api.fornecedor.infra", "br.procon.si.api.fornecedor.infra\br.procon.si.api.fornecedor.infra.csproj", "{A1FBCC05-529C-49ED-9FD9-FD7CF9C543BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

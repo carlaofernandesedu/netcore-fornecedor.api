@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace br.procon.si.api.fornecedor.core.VO
+namespace br.procon.si.api.fornecedor.infra.DTO
 {
     public class BaseFiltroPaginado
     {
