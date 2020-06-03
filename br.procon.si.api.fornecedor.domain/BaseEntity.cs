@@ -2,6 +2,6 @@
 {
     public class BaseEntity
     {
-        public string IdentificadorUnico { get; set; }
+        public string Id { get; set; }
     }
 }

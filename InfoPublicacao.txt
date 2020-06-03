@@ -26,3 +26,8 @@ https://stackoverflow.com/questions/39256057/how-to-publish-environment-specific
           </ItemGroup>
 
 Comando para definicao de variavel ambiente principal dotnet publish -c Release /p:EnvironmentName='Producao'  
+
+
+Tratativa para autoMapper
+dotnet add package AutoMapper --version 9.0.0
+dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection --version 7.0.0
