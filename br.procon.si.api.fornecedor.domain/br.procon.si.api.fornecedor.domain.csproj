@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Services\" />
+    <ProjectReference Include="..\br.procon.si.api.fornecedor.infra\br.procon.si.api.fornecedor.infra.csproj" />
   </ItemGroup>
 
 </Project>

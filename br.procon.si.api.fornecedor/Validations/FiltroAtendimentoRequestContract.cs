@@ -1,4 +1,5 @@
 using br.procon.si.api.fornecedor.Contracts.V1.Requests;
+using br.procon.si.api.fornecedor.infra;
 using FluentValidator.Validation;
 
 namespace br.procon.si.api.fornecedor.Validations
@@ -10,7 +11,7 @@ namespace br.procon.si.api.fornecedor.Validations
             Contract = new ValidationContract();
             Contract
                 .Requires()
-                .IsNotNullOrEmpty(itemValidacao.NomeConsumidor,"NomeConsumidor","Nome do Consumidor deve ser preenchido");
+                .IsNotNullOrEmpty(itemValidacao.NomeConsumidor,"nomeconsumidor","Nome do Consumidor deve ser preenchido");
         }
     }
 }

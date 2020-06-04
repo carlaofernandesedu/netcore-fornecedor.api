@@ -1,7 +1,7 @@
 using FluentValidator;
 using FluentValidator.Validation;
 
-namespace br.procon.si.api.fornecedor.Validations
+namespace br.procon.si.api.fornecedor.infra
 {
     public class BaseValidator : IContract
     {

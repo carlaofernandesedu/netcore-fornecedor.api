@@ -16,4 +16,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.4.1" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <ProjectReference Include="..\br.procon.si.api.fornecedor.domain\br.procon.si.api.fornecedor.domain.csproj" />
+    <ProjectReference Include="..\br.procon.si.api.fornecedor.infra\br.procon.si.api.fornecedor.infra.csproj" />
+  </ItemGroup>
+
 </Project>
