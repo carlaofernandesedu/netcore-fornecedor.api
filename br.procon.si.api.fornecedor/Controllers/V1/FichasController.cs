@@ -9,22 +9,51 @@ using Microsoft.AspNetCore.Mvc;
 using br.procon.si.api.fornecedor.Validations;
 using br.procon.si.api.fornecedor.Contracts.V1.Requests;
 using br.procon.si.api.fornecedor.Contracts.V1;
+using br.procon.si.api.fornecedor.domain.Interfaces;
+using br.procon.si.api.fornecedor.domain.VO;
 
 namespace br.procon.si.api.fornecedor.Controllers.V1
 {
     
     public class FichasController : BaseController
     {
-        [HttpPost(ApiRoutes.Fichas.Get)]
-        public IActionResult Get([FromBody] FiltroAtendimentoRequest filtro)
+        private readonly IFichaService _fichaService;
+        public FichasController(IFichaService fichaService)
         {
-            var validator = new FiltroAtendimentoRequestContract(filtro).Validar();
-            
-            if(!validator.Sucesso)
-              return BadRequest(new ResultadoCriticaResponse(validator.Criticas));
-            
-            var resultado = "Retorno OK";
-            return Ok(new ResultadoResponse<string>(resultado));
+            _fichaService = fichaService;     
+        }
+        [HttpPost(ApiRoutes.Fichas.Get)]
+        public IActionResult Get([FromBody] FiltroAtendimentoRequest filtroRequest)
+        {
+            var validator = new FiltroAtendimentoRequestContract(filtroRequest).Validar();
+
+            if (validator.Falhou)
+                return BadRequest(new ResultadoCriticaResponse(validator.Criticas));
+
+            var filtro = new FiltroAtendimento
+            {
+                NomeConsumidor = filtroRequest.NomeConsumidor,
+                NumDocumento = filtroRequest.NumDocumento
+            };
+
+            var respostaServico = _fichaService.Listar(filtro);
+
+            if (respostaServico.Validacao.Falhou)
+                return BadRequest(new ResultadoCriticaResponse(respostaServico.Validacao.Criticas));
+
+            var resultResponse = new List<FilaAtendimentoResponse>();
+            foreach( var item in respostaServico.Data)
+            {
+                resultResponse.Add(new FilaAtendimentoResponse()
+                {
+                    ConsumidorNome = item.NomeConsumidor,
+                    NumDocumento = item.NumDocumento
+                });
+            }
+            return Ok(new ResultadoResponse<List<FilaAtendimentoResponse>>(resultResponse));
+
+
+
         }
     }
 }

@@ -7,7 +7,7 @@ namespace br.procon.si.api.fornecedor.Contracts.V1.Responses
 {
     public class FilaAtendimentoResponse
     {
-        public string NumeroProtocolo { get; set; }
+        public string NumDocumento { get; set; }
         public string ConsumidorNome { get; set; }
     }
 }

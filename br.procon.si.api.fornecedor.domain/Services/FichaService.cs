@@ -20,7 +20,7 @@ namespace br.procon.si.api.fornecedor.domain.Services
             var retornoEntidade = new FilaAtendimento { NomeConsumidor = "Nome Consumidor 01", NumDocumento = "001" };
             var lista = new List<FilaAtendimento>();
             lista.Add(retornoEntidade);
-            return new ResultadoServico<IEnumerable<FilaAtendimento>>(lista);
+            return new ResultadoServico<IEnumerable<FilaAtendimento>>(lista,validacao);
         }
     }
 }

@@ -33,6 +33,7 @@ namespace br.procon.si.api.fornecedor
         {
             new InfraService().Install(services,Configuration);
             new DataService().Install(services,Configuration);
+            new AppService().Install(services, Configuration);
             new PresentationService().Install(services,Configuration);
             
         }
