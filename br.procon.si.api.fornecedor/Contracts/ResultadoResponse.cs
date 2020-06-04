@@ -1,12 +1,12 @@
 namespace br.procon.si.api.fornecedor.Contracts
 {
-    public class BaseResponse<T>
+    public class ResultadoResponse<T>
     {
-        public BaseResponse()
+        public ResultadoResponse()
         {
             
         }
-        public BaseResponse(T response) => Data = response;
+        public ResultadoResponse(T response) => Data = response;
         
         public T Data {get;set;}
     }

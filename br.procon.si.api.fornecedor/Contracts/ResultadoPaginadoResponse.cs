@@ -2,10 +2,10 @@ using System.Collections.Generic;
 
 namespace br.procon.si.api.fornecedor.Contracts
 {
-    public class PaginadoResponseDTO<T>
+    public class ResultadoPaginadoResponse<T>
     {
-        public PaginadoResponseDTO() {}
-        public PaginadoResponseDTO(IEnumerable<T> data)
+        public ResultadoPaginadoResponse() {}
+        public ResultadoPaginadoResponse(IEnumerable<T> data)
         {
             Data = data;
         }

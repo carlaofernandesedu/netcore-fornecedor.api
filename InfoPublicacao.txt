@@ -31,3 +31,9 @@ Comando para definicao de variavel ambiente principal dotnet publish -c Release 
 Tratativa para autoMapper
 dotnet add package AutoMapper --version 9.0.0
 dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection --version 7.0.0
+
+Tratativa de Validacao 
+dotnet add package FluentValidator --version 2.0.4
+
+Conceito do Andre Baltieri
+https://www.youtube.com/watch?v=eCodvUX1wao

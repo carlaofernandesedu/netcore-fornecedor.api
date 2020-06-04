@@ -6,16 +6,25 @@ using br.procon.si.api.fornecedor.Contracts.V1.Responses;
 using br.procon.si.api.fornecedor.Contracts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using br.procon.si.api.fornecedor.Validations;
+using br.procon.si.api.fornecedor.Contracts.V1.Requests;
+using br.procon.si.api.fornecedor.Contracts.V1;
 
 namespace br.procon.si.api.fornecedor.Controllers.V1
 {
-    [Route("api/[controller]")]
+    
     public class FichasController : BaseController
     {
-        [HttpGet("")]
-        public IActionResult Get()
+        [HttpPost(ApiRoutes.Fichas.Get)]
+        public IActionResult Get([FromBody] FiltroAtendimentoRequest filtro)
         {
-            return Ok(new { Retorno = "teste" });
+            var validator = new FiltroAtendimentoRequestContract(filtro).Validar();
+            
+            if(!validator.Sucesso)
+              return BadRequest(new ResultadoCriticaResponse(validator.Criticas));
+            
+            var resultado = "Retorno OK";
+            return Ok(new ResultadoResponse<string>(resultado));
         }
     }
 }
