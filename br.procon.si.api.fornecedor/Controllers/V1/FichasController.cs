@@ -17,13 +17,10 @@ namespace br.procon.si.api.fornecedor.Controllers.V1
     
     public class FichasController : BaseController
     {
-        private readonly IFichaService _fichaService;
-        public FichasController(IFichaService fichaService)
-        {
-            _fichaService = fichaService;     
-        }
         [HttpPost(ApiRoutes.Fichas.Get)]
-        public IActionResult Get([FromBody] FiltroAtendimentoRequest filtroRequest)
+        public IActionResult Get(
+            [FromServices] IFichaService servico,
+            [FromBody] FiltroAtendimentoRequest filtroRequest)
         {
             var validator = new FiltroAtendimentoRequestContract(filtroRequest).Validar();
 
@@ -36,7 +33,7 @@ namespace br.procon.si.api.fornecedor.Controllers.V1
                 NumDocumento = filtroRequest.NumDocumento
             };
 
-            var respostaServico = _fichaService.Listar(filtro);
+            var respostaServico = servico.Listar(filtro);
 
             if (respostaServico.Validacao.Falhou)
                 return BadRequest(new ResultadoCriticaResponse(respostaServico.Validacao.Criticas));

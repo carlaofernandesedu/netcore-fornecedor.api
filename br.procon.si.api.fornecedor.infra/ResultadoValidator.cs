@@ -2,16 +2,21 @@ namespace br.procon.si.api.fornecedor.infra
 {
     public class ResultadoValidator
     {
-        public bool Sucesso {get;private set;}
-        public string Mensagem{get;private set;}
+        private bool _sucesso = true;
+        public bool Sucesso
+        {
+            get { return _sucesso; }
+            set { _sucesso = value; }
+        }
         public object Criticas {get;private set;}
-
         public bool Falhou { get => !Sucesso; }
 
-        public ResultadoValidator(bool sucesso, string mensagem = null, object data = null)
+        public ResultadoValidator()
+        {
+        }
+        public ResultadoValidator(bool sucesso, object data = null)
         {
             Sucesso = sucesso;
-            Mensagem = mensagem;
             Criticas = data;
         }
 

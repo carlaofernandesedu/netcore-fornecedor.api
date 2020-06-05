@@ -7,10 +7,20 @@ namespace br.procon.si.api.fornecedor.infra
     {
         public ValidationContract Contract {get;protected set;}
 
-        public  ResultadoValidator Validar()
+        protected BaseValidator()
+        {
+            Contract = new ValidationContract();
+        }
+        public BaseValidator AdicionarContrato(BaseValidator regra)
+        {
+            Contract.AddNotifications(regra.Contract.Notifications);
+            return this;
+        }
+
+        public ResultadoValidator Validar()
         {
             if (!Contract.Valid)     
-             return new ResultadoValidator(sucesso:false,data:Contract.Notifications,mensagem:"Existem criticas");
+             return new ResultadoValidator(sucesso:false,data:Contract.Notifications);
 
              return new ResultadoValidator(sucesso:true);
 

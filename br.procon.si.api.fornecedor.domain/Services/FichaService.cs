@@ -11,7 +11,8 @@ namespace br.procon.si.api.fornecedor.domain.Services
     {
         public ResultadoServico<IEnumerable<FilaAtendimento>> Listar(FiltroAtendimento filtro)
         {
-            var validacao = new NomeConsumidorContract(filtro).Validar();
+            var validacao = new ListarValidation(filtro).Validar();
+            
             if (validacao.Falhou)
             {
                 return new ResultadoServico<IEnumerable<FilaAtendimento>>(validacao);
@@ -20,7 +21,7 @@ namespace br.procon.si.api.fornecedor.domain.Services
             var retornoEntidade = new FilaAtendimento { NomeConsumidor = "Nome Consumidor 01", NumDocumento = "001" };
             var lista = new List<FilaAtendimento>();
             lista.Add(retornoEntidade);
-            return new ResultadoServico<IEnumerable<FilaAtendimento>>(lista,validacao);
+            return new ResultadoServico<IEnumerable<FilaAtendimento>>(lista);
         }
     }
 }

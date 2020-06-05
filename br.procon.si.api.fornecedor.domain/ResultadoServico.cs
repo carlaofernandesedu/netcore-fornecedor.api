@@ -21,6 +21,7 @@ namespace br.procon.si.api.fornecedor.domain
         public ResultadoServico(T response)
         {
             Data = response;
+            Validacao = new ResultadoValidator();
         }
 
         public ResultadoServico(T response, ResultadoValidator resultado)

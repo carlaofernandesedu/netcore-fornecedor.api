@@ -9,9 +9,8 @@ namespace br.procon.si.api.fornecedor.domain.Validations
 {
     public class NomeConsumidorContract : BaseValidator
     {
-        public NomeConsumidorContract(FiltroAtendimento filtro)
+        public NomeConsumidorContract(FiltroAtendimento filtro) : base()
         {
-            Contract = new ValidationContract();
             Contract
                 .Requires()
                 .HasMinLen(filtro.NomeConsumidor, 5, "nomeconsumidor", "Deve possuir 5 caracteres");
