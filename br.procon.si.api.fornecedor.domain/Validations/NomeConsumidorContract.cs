@@ -9,7 +9,7 @@ namespace br.procon.si.api.fornecedor.domain.Validations
 {
     public class NomeConsumidorContract : BaseValidator
     {
-        public NomeConsumidorContract(FiltroAtendimento filtro) : base()
+        public NomeConsumidorContract(FiltroAtendimento filtro) 
         {
             Contract
                 .Requires()

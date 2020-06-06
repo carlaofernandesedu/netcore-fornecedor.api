@@ -8,7 +8,6 @@ namespace br.procon.si.api.fornecedor.Validations
     {
         public FiltroAtendimentoRequestContract(FiltroAtendimentoRequest itemValidacao)
         {
-            Contract = new ValidationContract();
             Contract
                 .Requires()
                 .IsNotNullOrEmpty(itemValidacao.NomeConsumidor,"nomeconsumidor","Nome do Consumidor deve ser preenchido");

@@ -7,7 +7,7 @@ namespace br.procon.si.api.fornecedor.domain.Validations
 {
     public class NumDocumentoContract : BaseValidator
     {
-        public NumDocumentoContract(FiltroAtendimento filtro) : base()
+        public NumDocumentoContract(FiltroAtendimento filtro) 
         {
             Contract
                 .Requires()

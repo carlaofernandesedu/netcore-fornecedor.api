@@ -3,14 +3,16 @@ using FluentValidator.Validation;
 
 namespace br.procon.si.api.fornecedor.infra
 {
+    
     public class BaseValidator : IContract
     {
-        public ValidationContract Contract {get;protected set;}
-
-        protected BaseValidator()
+        private ValidationContract _contract = new ValidationContract();    
+        public ValidationContract Contract 
         {
-            Contract = new ValidationContract();
+            get {return _contract;}
+            protected set{ _contract = value;}
         }
+
         public BaseValidator AdicionarContrato(BaseValidator regra)
         {
             Contract.AddNotifications(regra.Contract.Notifications);
@@ -19,10 +21,7 @@ namespace br.procon.si.api.fornecedor.infra
 
         public ResultadoValidator Validar()
         {
-            if (!Contract.Valid)     
-             return new ResultadoValidator(sucesso:false,data:Contract.Notifications);
-
-             return new ResultadoValidator(sucesso:true);
+             return new ResultadoValidator(sucesso:Contract.Valid,data:Contract.Notifications);
 
         }
     }
