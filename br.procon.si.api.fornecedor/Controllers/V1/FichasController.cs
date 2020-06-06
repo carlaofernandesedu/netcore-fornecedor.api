@@ -11,15 +11,23 @@ using br.procon.si.api.fornecedor.Contracts.V1.Requests;
 using br.procon.si.api.fornecedor.Contracts.V1;
 using br.procon.si.api.fornecedor.domain.Interfaces;
 using br.procon.si.api.fornecedor.domain.VO;
+using AutoMapper;
 
 namespace br.procon.si.api.fornecedor.Controllers.V1
 {
     
     public class FichasController : BaseController
     {
+        private readonly IFichaService _servicoFicha;
+        private readonly IMapper _servicoMapper;
+        public FichasController(IFichaService servicoFicha, IMapper servicoMapper)
+        {
+            _servicoFicha = servicoFicha;
+            _servicoMapper = servicoMapper;
+        }
+
         [HttpPost(ApiRoutes.Fichas.Get)]
         public IActionResult Get(
-            [FromServices] IFichaService servico,
             [FromBody] FiltroAtendimentoRequest filtroRequest)
         {
             var validator = new FiltroAtendimentoRequestContract(filtroRequest).Validar();
@@ -27,26 +35,14 @@ namespace br.procon.si.api.fornecedor.Controllers.V1
             if (validator.Falhou)
                 return BadRequest(new ResultadoCriticaResponse(validator.Criticas));
 
-            var filtro = new FiltroAtendimento
-            {
-                NomeConsumidor = filtroRequest.NomeConsumidor,
-                NumDocumento = filtroRequest.NumDocumento
-            };
-
-            var respostaServico = servico.Listar(filtro);
+            var filtro = _servicoMapper.Map<FiltroAtendimento>(filtroRequest);
+            var respostaServico = _servicoFicha.Listar(filtro);
 
             if (respostaServico.Validacao.Falhou)
                 return BadRequest(new ResultadoCriticaResponse(respostaServico.Validacao.Criticas));
+            
+            var resultResponse = _servicoMapper.Map<List<FilaAtendimentoResponse>>(respostaServico.Data);    
 
-            var resultResponse = new List<FilaAtendimentoResponse>();
-            foreach( var item in respostaServico.Data)
-            {
-                resultResponse.Add(new FilaAtendimentoResponse()
-                {
-                    ConsumidorNome = item.NomeConsumidor,
-                    NumDocumento = item.NumDocumento
-                });
-            }
             return Ok(new ResultadoResponse<List<FilaAtendimentoResponse>>(resultResponse));
 
 
