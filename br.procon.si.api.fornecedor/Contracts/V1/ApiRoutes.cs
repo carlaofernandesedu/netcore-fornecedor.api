@@ -9,6 +9,8 @@ namespace br.procon.si.api.fornecedor.Contracts.V1
         public class Fichas
         {
             public const string Get = Base + "/Fichas/Listar";
+
+            public const string GetMediator = Base + "/Fichas/Mediator/Listar";
         }
     }
 }

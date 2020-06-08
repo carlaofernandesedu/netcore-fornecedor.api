@@ -12,22 +12,25 @@ using br.procon.si.api.fornecedor.Contracts.V1;
 using br.procon.si.api.fornecedor.domain.Interfaces;
 using br.procon.si.api.fornecedor.domain.VO;
 using AutoMapper;
+using MediatR;
+using br.procon.si.api.fornecedor.domain;
+using br.procon.si.api.fornecedor.domain.Queries;
 
 namespace br.procon.si.api.fornecedor.Controllers.V1
 {
     
     public class FichasController : BaseController
     {
-        private readonly IFichaService _servicoFicha;
+        
         private readonly IMapper _servicoMapper;
-        public FichasController(IFichaService servicoFicha, IMapper servicoMapper)
+        public FichasController( IMapper servicoMapper, IMediator mediator)
         {
-            _servicoFicha = servicoFicha;
             _servicoMapper = servicoMapper;
         }
 
         [HttpPost(ApiRoutes.Fichas.Get)]
         public IActionResult Get(
+            [FromServices] IFichaService servicoFicha,
             [FromBody] FiltroAtendimentoRequest filtroRequest)
         {
             var validator = new FiltroAtendimentoRequestContract(filtroRequest).Validar();
@@ -36,7 +39,31 @@ namespace br.procon.si.api.fornecedor.Controllers.V1
                 return BadRequest(new ResultadoCriticaResponse(validator.Criticas));
 
             var filtro = _servicoMapper.Map<FiltroAtendimento>(filtroRequest);
-            var respostaServico = _servicoFicha.Listar(filtro);
+            var respostaServico = servicoFicha.Listar(filtro);
+
+            if (respostaServico.Validacao.Falhou)
+                return BadRequest(new ResultadoCriticaResponse(respostaServico.Validacao.Criticas));
+            
+            var resultResponse = _servicoMapper.Map<List<FilaAtendimentoResponse>>(respostaServico.Data);    
+
+            return Ok(new ResultadoResponse<List<FilaAtendimentoResponse>>(resultResponse));
+
+
+
+        }
+
+        [HttpPost(ApiRoutes.Fichas.GetMediator)]
+        public IActionResult GetMediator(
+            [FromServices] IMediator mediator,
+            [FromBody] FiltroAtendimentoRequest filtroRequest)
+        {
+            var validator = new FiltroAtendimentoRequestContract(filtroRequest).Validar();
+
+            if (validator.Falhou)
+                return BadRequest(new ResultadoCriticaResponse(validator.Criticas));
+
+            var filtro = _servicoMapper.Map<FichasPorFiltroQuery>(filtroRequest);
+            var respostaServico = mediator.Send<ResultadoServico<IEnumerable<FilaAtendimento>>>(filtro).Result;
 
             if (respostaServico.Validacao.Falhou)
                 return BadRequest(new ResultadoCriticaResponse(respostaServico.Validacao.Criticas));

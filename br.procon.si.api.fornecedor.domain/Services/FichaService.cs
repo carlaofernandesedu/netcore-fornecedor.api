@@ -1,13 +1,18 @@
 ﻿using br.procon.si.api.fornecedor.domain.Interfaces;
+using br.procon.si.api.fornecedor.domain.Queries;
 using br.procon.si.api.fornecedor.domain.Validations;
 using br.procon.si.api.fornecedor.domain.VO;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace br.procon.si.api.fornecedor.domain.Services
 {
-    public class FichaService : BaseService, IFichaService
+    public class FichaService : BaseService, 
+        IFichaService
     {
         public ResultadoServico<IEnumerable<FilaAtendimento>> Listar(FiltroAtendimento filtro)
         {
@@ -23,5 +28,7 @@ namespace br.procon.si.api.fornecedor.domain.Services
             lista.Add(retornoEntidade);
             return new ResultadoServico<IEnumerable<FilaAtendimento>>(lista);
         }
+
+        
     }
 }
