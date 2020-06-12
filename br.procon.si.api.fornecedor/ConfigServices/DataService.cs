@@ -1,4 +1,5 @@
-using br.procon.si.api.fornecedor.Data;
+using br.procon.si.api.fornecedor.DataX
+;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;

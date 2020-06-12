@@ -4,7 +4,7 @@ using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace br.procon.si.api.fornecedor.Data
+namespace br.procon.si.api.fornecedor.DataX
 {
     public class ApplicationDbContext : IdentityDbContext
     {

@@ -44,3 +44,20 @@ Tratativa de Mediator
 dotnet add package MediatR --version 8.0.0
 dotnet add package MediatR.Extensions.Microsoft.DependencyInjection --version 8.0.0
 dotnet remove package MediatR.Extensions.Microsoft.DependencyInjection
+
+Conceito de Pattern 
+https://www.youtube.com/watch?v=HdsRpSK4PUg
+
+Criacao de projeto 
+dotnet new classlib -o br.procon.si.api.fornecedor.data
+dotnet sln add StringLibrary/StringLibrary.csproj
+
+Conceito de Repositorios 
+https://medium.com/@adlerpagliarini/c-net-core-criando-uma-aplica%C3%A7%C3%A3o-utilizando-repository-pattern-com-dois-orms-diferentes-dapper-a821d501e317
+https://medium.com/@adlerpagliarini/c-net-core-criando-uma-aplica%C3%A7%C3%A3o-utilizando-repository-pattern-com-dois-orms-diferentes-dapper-97e8aa6ca35
+
+
+Instalacao do DAPPER 
+dotnet add package Dapper --version 2.0.35
+
+dotnet remove package System.Data.SqlClient
