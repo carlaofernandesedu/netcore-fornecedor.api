@@ -59,5 +59,11 @@ https://medium.com/@adlerpagliarini/c-net-core-criando-uma-aplica%C3%A7%C3%A3o-u
 
 Instalacao do DAPPER 
 dotnet add package Dapper --version 2.0.35
+dotnet add package System.Data.SqlClient
+dotnet add package Microsoft.Extensions.Configuration.Abstractions
+dotnet add package Microsoft.Extensions.Options
 
-dotnet remove package System.Data.SqlClient
+
+dotnet add reference br.procon.si./lib1.csproj
+
+https://www.wellingtonjhn.com/posts/configurando-suas-aplica%C3%A7%C3%B5es-.net-core/

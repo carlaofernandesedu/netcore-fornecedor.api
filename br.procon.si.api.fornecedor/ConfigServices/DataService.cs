@@ -1,3 +1,4 @@
+using br.procon.si.api.fornecedor.ConfigApp;
 using br.procon.si.api.fornecedor.DataX
 ;
 using Microsoft.AspNetCore.Identity;
@@ -11,6 +12,9 @@ namespace br.procon.si.api.fornecedor.ConfigServices
     {
         public void Install(IServiceCollection services, IConfiguration configuration)
         {
+
+                services.Configure<ConexaoDBOptions>(configuration.GetSection("ConnectionStrings"));
+
                    services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     configuration.GetConnectionString("DefaultConnection")));

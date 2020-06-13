@@ -5,12 +5,12 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using br.procon.si.api.fornecedor.infra;
 
 namespace br.procon.si.api.fornecedor.data.Standard.Dapper
 {
     
-    //public class DapperUnitOfWork : IUnitOfWork, IDisposable
-    public class DapperUnitOfWork : IDisposable
+    public class DapperUnitOfWork : IUnitOfWork 
     {
         private readonly string _connectionString;
         private SqlTransaction _transaction { get; set; }
@@ -24,25 +24,20 @@ namespace br.procon.si.api.fornecedor.data.Standard.Dapper
             get { return _connectionString; }
         }
 
-        public DapperUnitOfWork(string connectionString)
+        public DapperUnitOfWork(IDataSettings configuration)
         {
-            _connectionString = connectionString;
-            _commandTimeout = 300;
+             _connectionString = configuration.DefaultConnection;
+             _commandTimeout = configuration.commandTimeout.HasValue ? configuration.commandTimeout.Value : 300;
         }
 
-        public DapperUnitOfWork(string connectionString, int commandTimeout)
-        {
-            _connectionString = connectionString;
-            _commandTimeout = commandTimeout;
-        }
-
+        
         public void SetCommandTimeout(int commandTimeout)
         {
             _commandTimeout = commandTimeout;
         }
 
 
-        public SqlConnection Connection
+        public IDbConnection Connection
         {
             get
             {
@@ -50,7 +45,7 @@ namespace br.procon.si.api.fornecedor.data.Standard.Dapper
             }
         }
         #region "transacoes"
-        public SqlTransaction Transaction
+        public IDbTransaction Transaction
         {
             get
             {
