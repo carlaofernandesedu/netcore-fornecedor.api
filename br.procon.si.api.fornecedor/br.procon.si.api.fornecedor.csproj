@@ -25,4 +25,17 @@
     <ProjectReference Include="..\br.procon.si.api.fornecedor.data\br.procon.si.api.fornecedor.data.csproj" />
   </ItemGroup>
 
+  <ItemGroup Condition=" '$(EnvironmentName)' == 'Development'">
+      <Content Remove="appsettings.Staging.json" />
+      <Content Remove="appsettings.Production.json" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(EnvironmentName)' == 'Staging'">
+      <Content Remove="appsettings.Development.json" />
+      <Content Remove="appsettings.Production.json" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(EnvironmentName)' == 'Production'">
+       <Content Remove="appsettings.Staging.json" />
+       <Content Remove="appsettings.Development.json" />
+  </ItemGroup>
+
 </Project>
