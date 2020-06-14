@@ -15,10 +15,10 @@ namespace br.procon.si.api.fornecedor.ConfigServices
         public void Install(IServiceCollection services, IConfiguration configuration)
         {
 
-                
-                var conexaoDBOptions = new ConexaoDBOptions();
-                configuration.GetSection("ConnectionStrings").Bind(conexaoDBOptions);
-                services.AddScoped(typeof(IUnitOfWork),ctx=> new DapperUnitOfWork(conexaoDBOptions));
+                //TODO: Implementar Option Pattern
+                var configDBOptions = new ConfigDBOptions();
+                configuration.GetSection("ConnectionStrings").Bind(configDBOptions);
+                services.AddScoped(typeof(IUnitOfWork),ctx=> new DapperUnitOfWork(configDBOptions));
 
                    services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(

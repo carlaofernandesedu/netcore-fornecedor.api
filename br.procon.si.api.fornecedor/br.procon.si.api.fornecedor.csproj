@@ -14,7 +14,6 @@
     <PackageReference Include="MediatR" Version="8.0.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.4.1" />
   </ItemGroup>
 
@@ -26,16 +25,24 @@
   </ItemGroup>
 
   <ItemGroup Condition=" '$(EnvironmentName)' == 'Development'">
-      <Content Remove="appsettings.Staging.json" />
+      <Content Remove="appsettings.CTQ.json" />
+      <Content Remove="appsettings.Homologacao.json" />
       <Content Remove="appsettings.Production.json" />
   </ItemGroup>
-  <ItemGroup Condition=" '$(EnvironmentName)' == 'Staging'">
+  <ItemGroup Condition=" '$(EnvironmentName)' == 'CTQ'">
       <Content Remove="appsettings.Development.json" />
+      <Content Remove="appsettings.Homologacao.json" />
+      <Content Remove="appsettings.Production.json" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(EnvironmentName)' == 'Homologacao'">
+      <Content Remove="appsettings.Development.json" />
+      <Content Remove="appsettings.CTQ.json" />
       <Content Remove="appsettings.Production.json" />
   </ItemGroup>
   <ItemGroup Condition=" '$(EnvironmentName)' == 'Production'">
-       <Content Remove="appsettings.Staging.json" />
-       <Content Remove="appsettings.Development.json" />
+      <Content Remove="appsettings.Development.json" />
+      <Content Remove="appsettings.CTQ.json" />
+      <Content Remove="appsettings.Homologacao.json" />
   </ItemGroup>
 
 </Project>
