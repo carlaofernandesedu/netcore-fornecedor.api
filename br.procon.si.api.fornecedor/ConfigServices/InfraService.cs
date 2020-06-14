@@ -12,7 +12,7 @@ namespace br.procon.si.api.fornecedor.ConfigServices
         public void Install(IServiceCollection services, IConfiguration configuration)
         {
             services.AddAutoMapper(typeof(Startup));
-            services.AddMediatR(typeof(Startup),typeof(FichaServiceHandler));
+            services.AddMediatR(typeof(Startup),typeof(FichaQueriesHandler));
         } 
     }
 }

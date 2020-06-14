@@ -1,6 +1,8 @@
 using br.procon.si.api.fornecedor.ConfigApp;
+using br.procon.si.api.fornecedor.data.Standard.Dapper;
 using br.procon.si.api.fornecedor.DataX
 ;
+using br.procon.si.api.fornecedor.infra;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -13,7 +15,10 @@ namespace br.procon.si.api.fornecedor.ConfigServices
         public void Install(IServiceCollection services, IConfiguration configuration)
         {
 
-                services.Configure<ConexaoDBOptions>(configuration.GetSection("ConnectionStrings"));
+                
+                var conexaoDBOptions = new ConexaoDBOptions();
+                configuration.GetSection("ConnectionStrings").Bind(conexaoDBOptions);
+                services.AddScoped(typeof(IUnitOfWork),ctx=> new DapperUnitOfWork(conexaoDBOptions));
 
                    services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(

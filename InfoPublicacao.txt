@@ -55,7 +55,7 @@ dotnet sln add StringLibrary/StringLibrary.csproj
 Conceito de Repositorios 
 https://medium.com/@adlerpagliarini/c-net-core-criando-uma-aplica%C3%A7%C3%A3o-utilizando-repository-pattern-com-dois-orms-diferentes-dapper-a821d501e317
 https://medium.com/@adlerpagliarini/c-net-core-criando-uma-aplica%C3%A7%C3%A3o-utilizando-repository-pattern-com-dois-orms-diferentes-dapper-97e8aa6ca35
-
+https://github.com/adlerpagliarini/RepositoryPattern-Dapper-EFCore
 
 Instalacao do DAPPER 
 dotnet add package Dapper --version 2.0.35
@@ -67,3 +67,5 @@ dotnet add package Microsoft.Extensions.Options
 dotnet add reference br.procon.si./lib1.csproj
 
 https://www.wellingtonjhn.com/posts/configurando-suas-aplica%C3%A7%C3%B5es-.net-core/
+
+https://andrewlock.net/four-ways-to-dispose-idisposables-in-asp-net-core/

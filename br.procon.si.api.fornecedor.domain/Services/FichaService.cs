@@ -2,6 +2,7 @@
 using br.procon.si.api.fornecedor.domain.Queries;
 using br.procon.si.api.fornecedor.domain.Validations;
 using br.procon.si.api.fornecedor.domain.VO;
+using br.procon.si.api.fornecedor.infra;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,12 @@ namespace br.procon.si.api.fornecedor.domain.Services
     public class FichaService : BaseService, 
         IFichaService
     {
+        private readonly IFichaRepository _fichaRepository;
+
+        public FichaService(IFichaRepository fichaRepository, IUnitOfWork uow) : base(uow)
+        {
+            _fichaRepository = fichaRepository;
+        }
         public ResultadoServico<IEnumerable<FilaAtendimento>> Listar(FiltroAtendimento filtro)
         {
             var validacao = new ListarValidation(filtro).Validar();

@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using br.procon.si.api.fornecedor.infra;
 
 namespace br.procon.si.api.fornecedor.domain
 {
-    public class BaseService
+    public class BaseHandler
     {
         private readonly IUnitOfWork _uow;
 
-        public BaseService(IUnitOfWork uow)
+        public BaseHandler(IUnitOfWork uow)
         {
             _uow = uow;    
         }

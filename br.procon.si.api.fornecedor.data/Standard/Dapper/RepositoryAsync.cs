@@ -1,15 +1,16 @@
+using br.procon.si.api.fornecedor.data.Standard.Dapper;
 using br.procon.si.api.fornecedor.infra;
 
-namespace br.procon.si.api.fornecedor.data.Repositories
+namespace br.procon.si.api.fornecedor.data.Standard.Dapper
 {
     public class RepositoryAsync<TEntity> : IRepositoryAsync<TEntity> where TEntity : class
     {
 
-        protected readonly IUnitOfWork _providerDB;
+        protected readonly DapperUnitOfWork _providerDB;
 
         protected RepositoryAsync(IUnitOfWork providerDB)
         {
-            _providerDB = providerDB;
+            _providerDB = (DapperUnitOfWork) providerDB;
         }
 
         public void Dispose()
