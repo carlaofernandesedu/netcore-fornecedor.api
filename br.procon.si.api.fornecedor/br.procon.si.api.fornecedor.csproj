@@ -24,25 +24,24 @@
     <ProjectReference Include="..\br.procon.si.api.fornecedor.data\br.procon.si.api.fornecedor.data.csproj" />
   </ItemGroup>
 
-  <ItemGroup Condition=" '$(EnvironmentName)' == 'Development'">
+  <ItemGroup Condition=" '$(EnvironmentName)' == 'Development' Or '$(PublishProfile)' == 'Development' ">
       <Content Remove="appsettings.CTQ.json" />
       <Content Remove="appsettings.Homologacao.json" />
       <Content Remove="appsettings.Production.json" />
   </ItemGroup>
-  <ItemGroup Condition=" '$(EnvironmentName)' == 'CTQ'">
+  <ItemGroup Condition=" '$(EnvironmentName)' == 'CTQ' Or '$(PublishProfile)' == 'CTQ'">
       <Content Remove="appsettings.Development.json" />
       <Content Remove="appsettings.Homologacao.json" />
       <Content Remove="appsettings.Production.json" />
   </ItemGroup>
-  <ItemGroup Condition=" '$(EnvironmentName)' == 'Homologacao'">
+  <ItemGroup Condition=" '$(EnvironmentName)' == 'Homologacao' Or '$(PublishProfile)' == 'Homologacao'">
       <Content Remove="appsettings.Development.json" />
       <Content Remove="appsettings.CTQ.json" />
       <Content Remove="appsettings.Production.json" />
   </ItemGroup>
-  <ItemGroup Condition=" '$(EnvironmentName)' == 'Production'">
+  <ItemGroup Condition=" '$(EnvironmentName)' == 'Production' Or '$(PublishProfile)' == 'Production'">
       <Content Remove="appsettings.Development.json" />
       <Content Remove="appsettings.CTQ.json" />
       <Content Remove="appsettings.Homologacao.json" />
   </ItemGroup>
-
 </Project>

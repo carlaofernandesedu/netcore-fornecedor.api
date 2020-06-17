@@ -29,6 +29,10 @@ Comando para definicao de variavel ambiente principal dotnet publish -c Release 
 dotnet publish -c Release /p:EnvironmentName='Production' 
 dotnet publish -c Release /p:EnvironmentName='Staging' 
 
+dotnet build -c Release /p:EnvironmentName='CTQ' /P:DeployOnBuild=true  /P:PublishProfile=CTQ /P:publishUrl=c:\temp\netf 
+
+https://docs.microsoft.com/pt-br/aspnet/core/host-and-deploy/visual-studio-publish-profiles?view=aspnetcore-3.1
+
 Tratativa para autoMapper
 dotnet add package AutoMapper --version 9.0.0
 dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection --version 7.0.0

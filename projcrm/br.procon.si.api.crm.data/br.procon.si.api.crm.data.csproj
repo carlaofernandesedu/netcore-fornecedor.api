@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\br.procon.si.api.crm.domain\br.procon.si.api.crm.domain.csproj" />
+    <ProjectReference Include="..\br.procon.si.api.crm.infra\br.procon.si.api.crm.infra.csproj" />
+  </ItemGroup>
+
+</Project>
