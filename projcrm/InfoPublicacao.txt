@@ -1,0 +1,76 @@
+https://docs.microsoft.com/en-us/archive/msdn-magazine/2017/december/cutting-edge-configuring-asp-net-core-applications
+https://stackoverflow.com/questions/31049152/publish-to-iis-setting-environment-variable/36836533#36836533
+https://microservices.io/patterns/externalized-configuration.html
+
+https://docs.microsoft.com/pt-br/aspnet/core/host-and-deploy/iis/?view=aspnetcore-2.2
+
+https://docs.microsoft.com/pt-br/aspnet/core/fundamentals/environments?view=aspnetcore-2.2
+
+https://stackoverflow.com/questions/39256057/how-to-publish-environment-specific-appsettings-in-net-core-app
+
+   <!-- This configuration is done for dotnet publish command.
+     It will make sure only environment specific files will be copied -->
+          <ItemGroup Condition=" '$(EnvironmentName)' == 'Dev'">
+            <Content Remove="appsettings.Prod.json" />
+            <Content Remove="appsettings.Pre.json" />
+          </ItemGroup>
+          <ItemGroup Condition=" '$(EnvironmentName)' == 'Pre'">
+            <Content Remove="appsettings.Prod.json" />
+            <Content Remove="appsettings.Dev.json" />
+            <Content Remove="appsettings.Development.json" />
+          </ItemGroup>
+          <ItemGroup Condition=" '$(**EnvironmentName**)' == 'Prod'">
+            <Content Remove="appsettings.Pre.json" />
+            <Content Remove="appsettings.Dev.json" />
+            <Content Remove="appsettings.Development.json" />
+          </ItemGroup>
+
+Comando para definicao de variavel ambiente principal dotnet publish -c Release /p:EnvironmentName='Producao'  
+dotnet publish -c Release /p:EnvironmentName='Production' 
+dotnet publish -c Release /p:EnvironmentName='Staging' 
+
+dotnet build -c Release /p:EnvironmentName='CTQ' /P:DeployOnBuild=true  /P:PublishProfile=CTQ /P:publishUrl=c:\temp\netf 
+
+https://docs.microsoft.com/pt-br/aspnet/core/host-and-deploy/visual-studio-publish-profiles?view=aspnetcore-3.1
+
+Tratativa para autoMapper
+dotnet add package AutoMapper --version 9.0.0
+dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection --version 7.0.0
+
+
+
+Tratativa de Validacao 
+dotnet add package FluentValidator --version 2.0.4
+
+Conceito do Andre Baltieri
+https://www.youtube.com/watch?v=eCodvUX1wao
+
+Tratativa de Mediator 
+dotnet add package MediatR --version 8.0.0
+dotnet add package MediatR.Extensions.Microsoft.DependencyInjection --version 8.0.0
+dotnet remove package MediatR.Extensions.Microsoft.DependencyInjection
+
+Conceito de Pattern 
+https://www.youtube.com/watch?v=HdsRpSK4PUg
+
+Criacao de projeto 
+dotnet new classlib -o br.procon.si.api.fornecedor.data
+dotnet sln add StringLibrary/StringLibrary.csproj
+
+Conceito de Repositorios 
+https://medium.com/@adlerpagliarini/c-net-core-criando-uma-aplica%C3%A7%C3%A3o-utilizando-repository-pattern-com-dois-orms-diferentes-dapper-a821d501e317
+https://medium.com/@adlerpagliarini/c-net-core-criando-uma-aplica%C3%A7%C3%A3o-utilizando-repository-pattern-com-dois-orms-diferentes-dapper-97e8aa6ca35
+https://github.com/adlerpagliarini/RepositoryPattern-Dapper-EFCore
+
+Instalacao do DAPPER 
+dotnet add package Dapper --version 2.0.35
+dotnet add package System.Data.SqlClient
+dotnet add package Microsoft.Extensions.Configuration.Abstractions
+dotnet add package Microsoft.Extensions.Options
+
+
+dotnet add reference br.procon.si./lib1.csproj
+
+https://www.wellingtonjhn.com/posts/configurando-suas-aplica%C3%A7%C3%B5es-.net-core/
+
+https://andrewlock.net/four-ways-to-dispose-idisposables-in-asp-net-core/
