@@ -74,3 +74,10 @@ dotnet add reference br.procon.si./lib1.csproj
 https://www.wellingtonjhn.com/posts/configurando-suas-aplica%C3%A7%C3%B5es-.net-core/
 
 https://andrewlock.net/four-ways-to-dispose-idisposables-in-asp-net-core/
+
+Testes com Xunit 
+dotnet new xunit -o br.procon.si.api.crm.data.Tests
+dotnet sln add br.procon.si.api.crm.data.Tests/br.procon.si.api.crm.data.Tests.csproj
+dotnet add br.procon.si.api.crm.data.Tests/br.procon.si.api.crm.data.Tests.csproj reference br.procon.si.api.crm.data/br.procon.si.api.crm.data.csproj
+dotnet add br.procon.si.api.crm.data.Tests/br.procon.si.api.crm.data.Tests.csproj reference 
+dotnet add br.procon.si.api.crm.data.Tests/br.procon.si.api.crm.data.Tests.csproj reference 
