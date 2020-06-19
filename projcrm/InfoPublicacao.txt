@@ -81,3 +81,10 @@ dotnet sln add br.procon.si.api.crm.data.Tests/br.procon.si.api.crm.data.Tests.c
 dotnet add br.procon.si.api.crm.data.Tests/br.procon.si.api.crm.data.Tests.csproj reference br.procon.si.api.crm.data/br.procon.si.api.crm.data.csproj
 dotnet add br.procon.si.api.crm.data.Tests/br.procon.si.api.crm.data.Tests.csproj reference 
 dotnet add br.procon.si.api.crm.data.Tests/br.procon.si.api.crm.data.Tests.csproj reference 
+
+dotnet add br.procon.si.api.crm/br.procon.si.api.crm.csproj reference br.procon.si.api.crm.data/br.procon.si.api.crm.data.csproj
+
+
+dotnet new webapi -n br.procon.si.api.crm
+
+dotnet sln add br.procon.si.api.crm/br.procon.si.api.crm.csproj

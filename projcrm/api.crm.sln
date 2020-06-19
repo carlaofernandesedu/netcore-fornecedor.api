@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "br.procon.si.api.crm.domain
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "br.procon.si.api.crm.data.Tests", "br.procon.si.api.crm.data.Tests\br.procon.si.api.crm.data.Tests.csproj", "{AAC195F5-B6CB-47EF-8D07-C24B96AA07E3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "br.procon.si.api.crm", "br.procon.si.api.crm\br.procon.si.api.crm.csproj", "{E169B90B-4533-486C-98D2-A1D26936C34D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{AAC195F5-B6CB-47EF-8D07-C24B96AA07E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AAC195F5-B6CB-47EF-8D07-C24B96AA07E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AAC195F5-B6CB-47EF-8D07-C24B96AA07E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E169B90B-4533-486C-98D2-A1D26936C34D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E169B90B-4533-486C-98D2-A1D26936C34D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E169B90B-4533-486C-98D2-A1D26936C34D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E169B90B-4533-486C-98D2-A1D26936C34D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
