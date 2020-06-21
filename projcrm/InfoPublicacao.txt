@@ -88,3 +88,72 @@ dotnet add br.procon.si.api.crm/br.procon.si.api.crm.csproj reference br.procon.
 dotnet new webapi -n br.procon.si.api.crm
 
 dotnet sln add br.procon.si.api.crm/br.procon.si.api.crm.csproj
+
+Solucoes para carregar o Mesmo Service para mais de uma internface 
+https://stackoverflow.com/questions/39174989/how-to-register-multiple-implementations-of-the-same-interface-in-asp-net-core
+
+
+
+
+
+
+
+
+
+
+USO DENTRO DO VS CODE PARA O PROJETO DE TESTES 
+launch.json
+// Use IntelliSense to find out which attributes exist for C# debugging
+   // Use hover for the description of the existing attributes
+   // For further information visit https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md
+   "version": "0.2.0",
+   "configurations": [
+        {
+            "name": ".NET Core Launch (console)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/br.procon.si.api.crm.data.Tests/bin/Debug/netcoreapp2.2/br.procon.si.api.crm.data.Tests.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/br.procon.si.api.crm.data.Tests",
+            // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        {
+            "name": ".NET Core Attach",
+            "type": "coreclr",
+            "request": "attach",
+            "processId": "${command:pickProcess}"
+        }
+    ]
+}
+
+tasks.json 
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "command": "dotnet",
+            "type": "shell",
+            "args": [
+                "build",
+                // Ask dotnet build to generate full paths for file names.
+                "/property:GenerateFullPaths=true",
+                // Do not generate summary otherwise it leads to duplicate errors in Problems panel
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "silent"
+            },
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}
+
+USO PARA O PROJETO DE CONSOLE 
