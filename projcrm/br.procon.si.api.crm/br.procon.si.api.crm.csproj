@@ -6,14 +6,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.4.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\br.procon.si.api.crm.data\br.procon.si.api.crm.data.csproj" />
-    <ProjectReference Include="..\br.procon.si.api.crm.data\br.procon.si.api.crm.infra.csproj" />
-    <ProjectReference Include="..\br.procon.si.api.crm.data\br.procon.si.api.crm.domain.csproj" />
+    <ProjectReference Include="..\br.procon.si.api.crm.infra\br.procon.si.api.crm.infra.csproj" />
+    <ProjectReference Include="..\br.procon.si.api.crm.domain\br.procon.si.api.crm.domain.csproj" />
   </ItemGroup>
 
 </Project>

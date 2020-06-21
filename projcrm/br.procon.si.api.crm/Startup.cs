@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using br.procon.si.api.crm.ConfigApp;
+using br.procon.si.api.crm.ConfigServices;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -25,7 +27,10 @@ namespace br.procon.si.api.crm
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            new InfraService().Install(services,Configuration);
+            new DataService().Install(services,Configuration);
+            new AppService().Install(services, Configuration);
+            new PresentationService().Install(services,Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,8 +46,23 @@ namespace br.procon.si.api.crm
                 app.UseHsts();
             }
 
+            var swaggerOptions = new SwaggerOptions();
+            Configuration.GetSection(nameof(SwaggerOptions)).Bind(swaggerOptions);
+
+            app.UseSwagger(options=> { options.RouteTemplate = swaggerOptions.JsonRoute;});
+
+            app.UseSwaggerUI(options=> {
+                options.SwaggerEndpoint(swaggerOptions.UIEndpoint,swaggerOptions.Description);
+                });
+
             app.UseHttpsRedirection();
-            app.UseMvc();
+            app.UseStaticFiles();
+             app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+            });
         }
     }
 }
