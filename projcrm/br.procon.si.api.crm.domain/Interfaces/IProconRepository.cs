@@ -7,7 +7,7 @@ namespace br.procon.si.api.crm.domain.Interfaces
     {
             IEnumerable<EventoVO> EventoObterNaoProcessados();
 
-            IEnumerable<ConsumidorVO> ConsumidorObterPorEventos(IEnumerable<EventoVO> eventos);
+            List<ConsumidorVO> ConsumidorObterPorEventos(IEnumerable<EventoVO> eventos);
 
     }
 }

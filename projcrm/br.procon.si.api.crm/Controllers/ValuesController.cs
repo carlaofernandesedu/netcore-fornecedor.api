@@ -15,6 +15,7 @@ namespace br.procon.si.api.crm.Controllers
         public ValuesController(IEventoService eventoService)        
         {
             _eventoService = eventoService;
+            _eventoService.Processar();
         }
         // GET api/values
         [HttpGet]

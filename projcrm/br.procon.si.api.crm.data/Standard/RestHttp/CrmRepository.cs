@@ -1,7 +1,8 @@
 using System;
 using br.procon.si.api.crm.domain.Entities;
 using br.procon.si.api.crm.domain.Interfaces;
-using br.procon.si.api.crm.infra;
+using br.procon.si.api.crm.domain.VO.Crm;
+
 
 namespace br.procon.si.api.crm.data.Standard.RestHttp
 {
@@ -10,6 +11,11 @@ namespace br.procon.si.api.crm.data.Standard.RestHttp
         public CrmRepository(ServiceResolver serviceResolver) :base(serviceResolver)
         {
             
+        }
+
+        public bool ConsumidorAtualizar(CrmConsumidorVO consumidor)
+        {
+            return true;
         }
     }
 }

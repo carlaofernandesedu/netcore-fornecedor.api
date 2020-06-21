@@ -14,7 +14,7 @@ namespace br.procon.si.api.crm.data.Standard.Dapper
         {
         }
 
-        public IEnumerable<ConsumidorVO> ConsumidorObterPorEventos(IEnumerable<EventoVO> eventos)
+        public List<ConsumidorVO> ConsumidorObterPorEventos(IEnumerable<EventoVO> eventos)
         {
             List<ConsumidorVO> consumidores = new List<ConsumidorVO>();
             foreach(var evento in eventos)
