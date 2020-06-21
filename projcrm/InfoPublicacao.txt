@@ -156,4 +156,15 @@ tasks.json
     ]
 }
 
-USO PARA O PROJETO DE CONSOLE 
+USO PARA O PROJETO DE WEB 
+
+
+
+
+
+
+
+
+
+--TODO USAR O ROUTE CONTRACTS
+--FAZER A CHAMADA PELOS Repositorios

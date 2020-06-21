@@ -12,7 +12,7 @@ namespace br.procon.si.api.crm.domain.Services
             _repositorioProcon = repositorioProcon;
             _repositorioCrm = repositorioCrm;
         }
-        public void Processar()
+        public bool Processar()
         {
             throw new System.NotImplementedException();
         }
