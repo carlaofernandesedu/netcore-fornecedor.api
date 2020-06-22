@@ -17,5 +17,10 @@ namespace br.procon.si.api.crm.data.Standard.RestHttp
         {
             return true;
         }
+
+        public bool FornecedorAtualizar(CrmConsumidorVO crmFornecedor)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

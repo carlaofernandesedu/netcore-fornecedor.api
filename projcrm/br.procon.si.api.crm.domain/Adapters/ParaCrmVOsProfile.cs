@@ -9,6 +9,7 @@ namespace br.procon.si.api.crm.domain.Adapters
         public ParaCrmVOsProfile()
         {
             CreateMap<ConsumidorVO,CrmConsumidorVO>();
+            CreateMap<FornecedorVO,CrmFornecedorVO>();
         }
     }
 }

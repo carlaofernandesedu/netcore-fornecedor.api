@@ -9,5 +9,7 @@ namespace br.procon.si.api.crm.domain.Interfaces
 
             List<ConsumidorVO> ConsumidorObterPorEventos(IEnumerable<EventoVO> eventos);
 
+            List<FornecedorVO> FornecedorObterPorEventos(IEnumerable<EventoVO> eventos);
+
     }
 }

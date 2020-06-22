@@ -8,6 +8,6 @@ namespace br.procon.si.api.crm.domain.VO
        public string Entidade { get; set; }
        public int? ConsumidorId { get; set; }
        public DateTime DataCriacao {get; set;}
-
+       public int? FornecedorId { get; set; }
     }
 }

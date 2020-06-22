@@ -19,12 +19,12 @@ namespace br.procon.si.api.crm.domain.Services
         public bool Processar()
         {
             var eventos = _repositorioProcon.EventoObterNaoProcessados();
-            var eventosConsumidores = eventos.Where(x=> x.Entidade == "consumidor");
-            var consumidoresAProcessar =_repositorioProcon.ConsumidorObterPorEventos(eventosConsumidores);
-            consumidoresAProcessar.ForEach( consumidor => 
+            var eventosFornecedores = eventos.Where(x=> x.Entidade == "fornecedor");
+            var fornecedoresAProcessar =_repositorioProcon.ConsumidorObterPorEventos(eventosFornecedores);
+            fornecedoresAProcessar.ForEach( fornecedor => 
             {
-                var crmConsumidor = _servicoMapper.Map<CrmConsumidorVO>(consumidor);  
-               _repositorioCrm.ConsumidorAtualizar(crmConsumidor);  
+                var crmFornecedor = _servicoMapper.Map<CrmConsumidorVO>(fornecedor);  
+               _repositorioCrm.FornecedorAtualizar(crmFornecedor);  
               
             });
 
