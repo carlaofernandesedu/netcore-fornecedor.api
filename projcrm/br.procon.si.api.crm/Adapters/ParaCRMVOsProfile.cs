@@ -2,11 +2,11 @@ using AutoMapper;
 using br.procon.si.api.crm.domain.VO;
 using br.procon.si.api.crm.domain.VO.Crm;
 
-namespace br.procon.si.api.crm.domain.Adapters
+namespace br.procon.si.api.crm.Adapters
 {
-     public class ParaCrmVOsProfile : Profile
+    public class ParaCRMVOsProfile : Profile
     {
-        public ParaCrmVOsProfile()
+        public ParaCRMVOsProfile()
         {
             CreateMap<ConsumidorVO,CrmConsumidorVO>();
             CreateMap<FornecedorVO,CrmFornecedorVO>();

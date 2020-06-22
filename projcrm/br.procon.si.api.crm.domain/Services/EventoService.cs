@@ -20,10 +20,10 @@ namespace br.procon.si.api.crm.domain.Services
         {
             var eventos = _repositorioProcon.EventoObterNaoProcessados();
             var eventosFornecedores = eventos.Where(x=> x.Entidade == "fornecedor");
-            var fornecedoresAProcessar =_repositorioProcon.ConsumidorObterPorEventos(eventosFornecedores);
+            var fornecedoresAProcessar =_repositorioProcon.FornecedorObterPorEventos(eventosFornecedores);
             fornecedoresAProcessar.ForEach( fornecedor => 
             {
-                var crmFornecedor = _servicoMapper.Map<CrmConsumidorVO>(fornecedor);  
+                var crmFornecedor = _servicoMapper.Map<CrmFornecedorVO>(fornecedor);  
                _repositorioCrm.FornecedorAtualizar(crmFornecedor);  
               
             });

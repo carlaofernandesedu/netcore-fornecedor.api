@@ -1,4 +1,5 @@
 using System;
+using br.procon.si.api.crm.Adapters;
 using br.procon.si.api.crm.ConfigApp;
 using br.procon.si.api.crm.data.Standard;
 using br.procon.si.api.crm.data.Standard.Dapper;
@@ -18,9 +19,13 @@ namespace br.procon.si.api.crm.ConfigServices
                 //TODO: Implementar Option Pattern
                 var configDBOptions = new ConfigDBOptions();
                  configuration.GetSection("ConnectionStrings").Bind(configDBOptions);
-                // services.AddScoped(typeof(IUnitOfWork),ctx=> new DapperUnitOfWork(configDBOptions));
+
+                var crmAPIOptions = new CrmAPIOptions();
+                 configuration.GetSection("ApiCrmOptions").Bind(crmAPIOptions);
+                var mapeamentoUrls = ParaCRMHelper.ConverterParaCRMHelperDictionary(crmAPIOptions);
+                
                 services.AddScoped(ctx => new DapperUnitOfWork(configDBOptions));
-                services.AddScoped(ctx => new CRMHelperUnitOfWork(null,"client","segredo"));
+                services.AddScoped(ctx => new CRMHelperUnitOfWork(mapeamentoUrls,crmAPIOptions.ClientId,crmAPIOptions.Secret));
                 services.AddTransient<ServiceResolver>(serviceProvider => key =>  
                     {  
                         switch (key)  

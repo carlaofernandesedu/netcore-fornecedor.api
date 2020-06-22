@@ -18,9 +18,10 @@ namespace br.procon.si.api.crm.data.Standard.RestHttp
             return true;
         }
 
-        public bool FornecedorAtualizar(CrmConsumidorVO crmFornecedor)
+        public bool FornecedorAtualizar(CrmFornecedorVO crmFornecedor)
         {
-            throw new NotImplementedException();
+             var response =  _providerDB.Execute("fornecedoratualizar", crmFornecedor, autenticar: false);
+             return response;
         }
     }
 }

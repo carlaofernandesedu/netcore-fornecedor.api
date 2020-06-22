@@ -1,5 +1,7 @@
+using System;
 using System.Reflection;
 using AutoMapper;
+using br.procon.si.api.crm.domain.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
