@@ -1,0 +1,12 @@
+namespace br.procon.si.api.crm.domain.VO
+{
+    public class FornecedorVO
+    {
+        public int FornecedorId { get; set; }
+        public int Nome { get; set; }
+        public string  NumDocumento { get; set; }
+
+        public bool  EhCNPJ { get; set; }
+        
+    }
+}
