@@ -159,12 +159,11 @@ tasks.json
 USO PARA O PROJETO DE WEB 
 
 
-
-
-
-
-
-
-
+Tratativa de Projeto 
+dotnet add package Microsoft.Extensions.Hosting --version 2.2.0
+https://docs.microsoft.com/pt-br/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-3.1&tabs=visual-studio#backgroundservice-base-class
+https://docs.microsoft.com/en-us/dotnet/architecture/microservices/multi-container-microservice-net-applications/background-tasks-with-ihostedservice
+ou mais simples
+ https://www.youtube.com/watch?v=Qa_jctUKQl4
 --TODO USAR O ROUTE CONTRACTS
 --FAZER A CHAMADA PELOS Repositorios
