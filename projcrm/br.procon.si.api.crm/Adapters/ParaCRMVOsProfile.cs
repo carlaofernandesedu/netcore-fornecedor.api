@@ -1,6 +1,6 @@
 using AutoMapper;
-using br.procon.si.api.crm.domain.VO;
-using br.procon.si.api.crm.domain.VO.Crm;
+using br.procon.si.api.crm.infra.VO;
+using br.procon.si.api.crm.infra.VO.Crm;
 
 namespace br.procon.si.api.crm.Adapters
 {

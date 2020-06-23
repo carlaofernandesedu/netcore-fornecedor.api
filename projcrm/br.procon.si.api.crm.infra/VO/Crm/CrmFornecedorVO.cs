@@ -1,4 +1,4 @@
-namespace br.procon.si.api.crm.domain.VO.Crm
+namespace br.procon.si.api.crm.infra.VO.Crm
 {
     public class CrmFornecedorVO
     {

@@ -1,9 +1,8 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
-using br.procon.si.api.crm.domain.Entities;
-using br.procon.si.api.crm.domain.Interfaces;
-using br.procon.si.api.crm.domain.VO;
+using br.procon.si.api.crm.data.Interfaces;
+using br.procon.si.api.crm.infra.VO;
 using br.procon.si.api.crm.infra;
 
 namespace br.procon.si.api.crm.data.Standard.Dapper

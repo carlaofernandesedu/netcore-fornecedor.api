@@ -1,7 +1,8 @@
 using System.Linq;
-using br.procon.si.api.crm.domain.Interfaces;
+using br.procon.si.api.crm.data.Interfaces;
 using AutoMapper;
-using br.procon.si.api.crm.domain.VO.Crm;
+using br.procon.si.api.crm.infra.VO.Crm;
+using br.procon.si.api.crm.domain.Interfaces;
 
 namespace br.procon.si.api.crm.domain.Services
 {

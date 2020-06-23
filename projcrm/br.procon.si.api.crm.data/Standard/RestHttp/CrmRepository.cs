@@ -1,7 +1,7 @@
 using System;
-using br.procon.si.api.crm.domain.Entities;
-using br.procon.si.api.crm.domain.Interfaces;
-using br.procon.si.api.crm.domain.VO.Crm;
+using br.procon.si.api.crm.infra;
+using br.procon.si.api.crm.data.Interfaces;
+using br.procon.si.api.crm.infra.VO.Crm;
 
 
 namespace br.procon.si.api.crm.data.Standard.RestHttp

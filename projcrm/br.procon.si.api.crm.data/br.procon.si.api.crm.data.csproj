@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\br.procon.si.api.crm.domain\br.procon.si.api.crm.domain.csproj" />
     <ProjectReference Include="..\br.procon.si.api.crm.infra\br.procon.si.api.crm.infra.csproj" />
   </ItemGroup>
 

@@ -1,4 +1,4 @@
-namespace br.procon.si.api.crm.domain.VO
+namespace br.procon.si.api.crm.infra.VO
 {
     public class ConsumidorVO
     {

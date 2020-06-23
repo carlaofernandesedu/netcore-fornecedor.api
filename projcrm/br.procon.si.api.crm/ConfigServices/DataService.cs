@@ -1,11 +1,10 @@
 using System;
 using br.procon.si.api.crm.Adapters;
 using br.procon.si.api.crm.ConfigApp;
-using br.procon.si.api.crm.data.Standard;
+using br.procon.si.api.crm.data.Configuration;
+using br.procon.si.api.crm.data.Interfaces;
 using br.procon.si.api.crm.data.Standard.Dapper;
 using br.procon.si.api.crm.data.Standard.RestHttp;
-using br.procon.si.api.crm.domain.Interfaces;
-using br.procon.si.api.crm.infra;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using static br.procon.si.api.crm.data.Standard.BaseRepositoryAsync;
@@ -16,13 +15,19 @@ namespace br.procon.si.api.crm.ConfigServices
     {
         public void Install(IServiceCollection services, IConfiguration configuration)
         {
-                //TODO: Implementar Option Pattern
                 var configDBOptions = new ConfigDBOptions();
                  configuration.GetSection("ConnectionStrings").Bind(configDBOptions);
 
                 var crmAPIOptions = new CrmAPIOptions();
                  configuration.GetSection("ApiCrmOptions").Bind(crmAPIOptions);
                 var mapeamentoUrls = ParaCRMHelper.ConverterParaCRMHelperDictionary(crmAPIOptions);
+
+                //Via Option Pattern
+                services.Configure<DBSettings>(configuration.GetSection(
+                                        DBSettings.DBSettingsOptions));
+
+                services.Configure<CrmApiSettings>(configuration.GetSection(
+                           CrmApiSettings.CrmApiSettingsOptions));
                 
                 services.AddScoped(ctx => new DapperUnitOfWork(configDBOptions));
                 services.AddScoped(ctx => new CRMHelperUnitOfWork(mapeamentoUrls,crmAPIOptions.ClientId,crmAPIOptions.Secret));

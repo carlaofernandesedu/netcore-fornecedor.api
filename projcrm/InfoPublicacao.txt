@@ -167,3 +167,5 @@ ou mais simples
  https://www.youtube.com/watch?v=Qa_jctUKQl4
 --TODO USAR O ROUTE CONTRACTS
 --FAZER A CHAMADA PELOS Repositorios
+
+https://rafaelcruz.azurewebsites.net/2020/04/10/construindo-um-windows-service-ou-linux-deamons-com-worker-service-net-core-parte-1/

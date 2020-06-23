@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using br.procon.si.api.crm.domain.VO;
+using br.procon.si.api.crm.infra.VO;
 
-namespace br.procon.si.api.crm.domain.Interfaces
+namespace br.procon.si.api.crm.data.Interfaces
 {
     public interface IProconRepository
     {

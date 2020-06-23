@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\br.procon.si.api.crm.infra\br.procon.si.api.crm.infra.csproj" />
+    <ProjectReference Include="..\br.procon.si.api.crm.data\br.procon.si.api.crm.data.csproj" />
   </ItemGroup>
 
   <ItemGroup>

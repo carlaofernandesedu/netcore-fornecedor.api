@@ -1,9 +1,12 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using br.procon.si.api.crm.data.Interfaces;
 using br.procon.si.api.crm.domain.Interfaces;
 using br.procon.si.api.crm.infra.HostApp;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 namespace br.procon.si.api.crm.domain.Services
 {
@@ -31,6 +34,7 @@ namespace br.procon.si.api.crm.domain.Services
 
                Processar();
 
+
                 await Task.Delay(5000, stoppingToken);
             }
         }
@@ -41,5 +45,6 @@ namespace br.procon.si.api.crm.domain.Services
                     "Scoped Processing Service is working. Count: {Count}", executionCount);
             return true;
         }
+
     }
 }

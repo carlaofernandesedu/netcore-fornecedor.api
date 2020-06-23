@@ -1,6 +1,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using br.procon.si.api.crm.data.Interfaces;
 using br.procon.si.api.crm.domain.Interfaces;
 using br.procon.si.api.crm.infra.HostApp;
 using Microsoft.Extensions.Logging;
